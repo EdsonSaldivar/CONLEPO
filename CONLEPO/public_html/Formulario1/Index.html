@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../imagenes/login/liconsa_logo.jpeg" type="image/x-icon">
+    <title>Formulario de Captura</title>
+</head>
+<body>
+
+<h2>Formulario de Captura</h2>
+
+<form action="#" method="post">
+
+    <!-- Datos generales -->
+    <label for="numeroContrato">Número de Contrato:</label>
+    <input type="text" id="numeroContrato" name="numeroContrato" required style="text-transform:uppercase;"><br>
+
+    <label for="nombreEmpresa">Nombre de la Empresa Adjudicada:</label>
+    <input type="text" id="nombreEmpresa" name="nombreEmpresa" required><br>
+
+    <label for="tipoLeche">Tipo de Leche:</label>
+    <input type="text" id="tipoLeche" name="tipoLeche" required><br>
+
+    <label for="tipoContrato">Tipo de Contrato:</label>
+    <select id="tipoContrato" name="tipoContrato" required onchange="mostrarOpciones()">
+        <option value="" disabled selected>Selecciona el tipo de contrato</option>
+        <option value="ABIERTO">ABIERTO</option>
+        <option value="CERRADO">CERRADO</option>
+    </select><br>
+
+    <!-- Opciones para contrato ABIERTO -->
+    <div id="contratoAbierto" style="display:none;">
+        <label for="volumenMaximo">Volumen Máximo:</label>
+        <input type="text" id="volumenMaximo" name="volumenMaximo"><br>
+
+        <label for="volumenMinimo">Volumen Mínimo:</label>
+        <input type="text" id="volumenMinimo" name="volumenMinimo"><br>
+
+        <label for="cantidadSacos">Cantidad en Sacos de 25kgs:</label>
+        <input type="number" id="cantidadSacos" name="cantidadSacos" min="0"><br>
+    </div>
+
+    <!-- Opciones para contrato CERRADO -->
+    <div id="contratoCerrado" style="display:none;">
+        <div class="range-container">
+            <label for="porcentajeContratado">Porcentaje del Volumen Contratado:</label>
+            <input type="range" id="porcentajeContratado" name="porcentajeContratado" min="0" max="20" step="1" value="0" oninput="updateOutput()">
+            <output for="porcentajeContratado">0%</output>
+        </div>
+
+        <label for="cantidadSacosCerrado">Cantidad en Sacos de 25kgs:</label>
+        <input type="number" id="cantidadSacosCerrado" name="cantidadSacosCerrado" min="0"><br>
+    </div>
+
+    <!-- Datos finales -->
+    <label for="representanteLegal">Nombre del Representante Legal:</label>
+    <input type="text" id="representanteLegal" name="representanteLegal" required style="text-transform:uppercase;"><br>
+
+    <label for="rfcEmpresa">RFC de la Empresa:</label>
+    <input type="text" id="rfcEmpresa" name="rfcEmpresa" required style="text-transform:uppercase;"><br>
+
+    <label for="fechaVigencia">Fecha de Vigencia del Contrato:</label>
+    <input type="date" id="fechaVigencia" name="fechaVigencia" required><br>
+
+    <label for="precioKg">Precio por Kg:</label>
+    <input type="number" id="precioKg" name="precioKg" step="0.01" min="0" required><br>
+
+    <input type="submit" value="Enviar">
+</form>
+
+<script>
+    function mostrarOpciones() {
+        var tipoContrato = document.getElementById("tipoContrato").value;
+        var contratoAbierto = document.getElementById("contratoAbierto");
+        var contratoCerrado = document.getElementById("contratoCerrado");
+
+        if (tipoContrato === "ABIERTO") {
+            contratoAbierto.style.display = "block";
+            contratoCerrado.style.display = "none";
+        } else if (tipoContrato === "CERRADO") {
+            contratoAbierto.style.display = "none";
+            contratoCerrado.style.display = "block";
+        }
+    }
+</script>
+
+<script>
+    function updateOutput() {
+        var porcentajeContratado = document.getElementById("porcentajeContratado");
+        var output = document.querySelector("output[for='porcentajeContratado']");
+        output.textContent = porcentajeContratado.value + "%";
+    }
+</script>
+
+</body>
+</html>

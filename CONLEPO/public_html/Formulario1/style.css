@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    /* Agrega un fondo degradado */
+    background: linear-gradient(to bottom, #ffffff, #c8c8c8);
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: #333;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 9px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 2px solid #0f7425;
+}
+
+select {
+    appearance: none;
+    cursor: pointer;
+}
+
+div {
+    margin-bottom: 15px;
+}
+
+input[type="submit"] {
+    background-color: #0f7425;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #0d6420;
+}
+
+/* Contenedor para la barra de rango y el output */
+.range-container {
+    display: flex;
+    align-items: center;
+}
+
+input[type="range"] {
+    width: 80%; /* Ajusta el ancho según sea necesario */
+    margin-top: 5px;
+}
+
+output {
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 10px; /* Espacio entre la barra de rango y el output */
+    color: #333;
+}
