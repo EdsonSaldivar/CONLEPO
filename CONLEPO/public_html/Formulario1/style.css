@@ -1,10 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    /* margin: 20px; */
     /* Agrega un fondo degradado */
-    background: linear-gradient(to bottom, #ffffff, #c8c8c8);
+    background: linear-gradient(#ffffff, #c8c8c8);
+    background-attachment: fixed; /* El fondo se mueve con el scroll es decir: NO PERMANECE FIJO EN LA PANTALLA */
     margin: 0;
     padding: 0;
+    height: 100vh; /* Esto asegura que la altura del contenedor sea igual a la altura de la ventana */
 }
 
 h2 {
@@ -70,4 +72,43 @@ output {
     font-size: 14px;
     margin-left: 10px; /* Espacio entre la barra de rango y el output */
     color: #333;
+}
+
+/* Estilo para el nuevo div */
+#valoresCamposCT {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+#valoresCamposCT select{
+    margin-right: 10px;
+}
+
+#nombresCamposCT {
+    display: flex;
+    align-items: baseline;
+}
+
+#nombresCamposCT label {
+    margin-right: 55px; /* Reduzca el margen derecho entre los labels */
+}
+
+label[for="cantidadNuevo"] {
+    margin-left: 70px;
+}
+
+#btnAgregar {
+    background-color: #0f7425;
+    color: white;
+    border: none;
+    border-radius: 50%; /* Hace que el borde del botón sea redondo */
+    padding: 10px; /* Ajusta el tamaño del botón según sea necesario */
+    cursor: pointer;
+    margin-left: 5px; /* Ajusta el margen izquierdo según sea necesario */
+    transition: background 0.3s; /* Agrega una transición al color de fondo al pasar el ratón */
+}
+
+#btnAgregar:hover {
+    background: #0d6420;
 }
