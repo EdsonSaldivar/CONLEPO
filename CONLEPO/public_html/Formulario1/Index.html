@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="../imagenes/login/liconsa_logo.jpeg" type="image/x-icon">
+    <link rel="shortcut icon" href="../../images/liconsa_logo.jpeg" type="image/x-icon">
     <title>Formulario de Captura</title>
 </head>
 <body>
 
 <h2>Formulario de Captura</h2>
 
-<form action="#" method="post">
+<form action="#" method="post"> <!-- Falta colocar el codigo de BASE DE DATOS -->
 
     <!-- Datos generales -->
     <label for="numeroContrato">Número de Contrato:</label>
@@ -54,13 +54,36 @@
         <input type="number" id="cantidadSacosCerrado" name="cantidadSacosCerrado" min="0"><br>
     </div>
 
+    <!-- Campos del Centro de Trabajo -->
+    <div id="CamposCT">
+        <div id="nombresCamposCT">
+            <label for="centroTrabajo">Centro de Trabajo:</label>
+            <label for="periodo">Periodo:</label>
+            <label for="cantidadNuevo">Cantidad:</label>
+        </div>
+
+        <div id="valoresCamposCT">
+            <select id="centroTrabajo" name="centroTrabajo" required>
+                <option value="" disabled selected>Selecciona el centro de trabajo</option>
+                <option value="1">GERENCIA ESTATAL JALISCO</option>
+                <option value="2">GERENCIA ESTATAL QUERETARO</option>
+                <option value="3">GERENCIA METROPOLITANA SUR</option>
+            </select><br>
+
+            <select id="periodo" name="periodo" required>
+                <option value="" disabled selected>Selecciona el periodo</option>
+                <option value="1">ENERO</option>
+                <option value="2">FEBRERO</option>
+                <option value="3">MARZO</option>
+            </select><br>
+
+            <input type="number" id="cantidadNuevo" name="cantidadNuevo" min="0" required><br>
+
+            <button type="button" id="btnAgregar" onclick="duplicarCampos()">+</button>
+        </div>
+    </div>
+
     <!-- Datos finales -->
-    <label for="representanteLegal">Nombre del Representante Legal:</label>
-    <input type="text" id="representanteLegal" name="representanteLegal" required style="text-transform:uppercase;"><br>
-
-    <label for="rfcEmpresa">RFC de la Empresa:</label>
-    <input type="text" id="rfcEmpresa" name="rfcEmpresa" required style="text-transform:uppercase;"><br>
-
     <label for="fechaVigencia">Fecha de Vigencia del Contrato:</label>
     <input type="date" id="fechaVigencia" name="fechaVigencia" required><br>
 
@@ -92,6 +115,22 @@
         var output = document.querySelector("output[for='porcentajeContratado']");
         output.textContent = porcentajeContratado.value + "%";
     }
+</script>
+
+<script>
+    function duplicarCampos() {
+    // Clonar el div nuevosCampos
+    var CamposClone = document.getElementById("valoresCamposCT").cloneNode(true);
+
+    // Limpiar los valores de los campos clonados
+    var inputs = CamposClone.querySelectorAll('input, select');
+    inputs.forEach(function (input) {
+        input.value = '';
+    });
+
+    // Insertar el clon debajo del original
+    document.getElementById("CamposCT").appendChild(CamposClone);
+}
 </script>
 
 </body>
