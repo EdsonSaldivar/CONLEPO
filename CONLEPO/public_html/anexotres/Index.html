@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANEXO TRES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>ANEXO TRES</h1>
+
+    <form action="#" method="post">
+
+        <fieldset>
+            <legend>Selecciona un rango de fechas</legend>
+            <div class="date-container">
+                <div class="date-row">
+                    <div class="date-item">
+                        <label for="fechaInicio">Fecha de inicio</label>
+                        <input type="date" id="fechaInicio" name="fechaInicio" required>
+                    </div>
+                    
+                    <div class="date-item">
+                        <label for="fechaFin">Fecha de fin</label>
+                        <input type="date" id="fechaFin" name="fechaFin" required>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Selecciona las plantas de producción</legend>
+            <div class="plantas-container">
+                <input type="checkbox" id="colima" name="plantas[]" value="COLIMA">
+                <label for="colima">COLIMA</label><br>
+
+                <input type="checkbox" id="jalisco" name="plantas[]" value="JALISCO">
+                <label for="jalisco">JALISCO</label><br>
+
+                <input type="checkbox" id="veracruz" name="plantas[]" value="VERACRUZ">
+                <label for="veracruz">VERACRUZ</label><br>
+
+                <input type="checkbox" id="michoacan" name="plantas[]" value="MICHOACAN">
+                <label for="michoacan">MICHOACAN</label><br>
+
+                <input type="checkbox" id="oaxaca" name="plantas[]" value="OAXACA">
+                <label for="oaxaca">OAXACA</label><br>
+
+                <input type="checkbox" id="tlahuac" name="plantas[]" value="TLAHUAC">
+                <label for="tlahuac">TLÁHUAC</label><br>
+
+                <input type="checkbox" id="tlalnepantla" name="plantas[]" value="TLALNEPANTLA">
+                <label for="tlalnepantla">TLALNEPANTLA</label><br>
+
+                <input type="checkbox" id="toluca" name="plantas[]" value="TOLUCA">
+                <label for="toluca">TOLUCA</label><br>
+            <!-- Agregar más checkboxes según sea necesario -->
+            </div>
+        </fieldset>
+
+        <br>
+        <input type="submit" value="ACEPTAR">
+    </form>
+
+</body>
+</html>
+
