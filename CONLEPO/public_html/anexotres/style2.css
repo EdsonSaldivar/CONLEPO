@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: linear-gradient(#ffffff, #c8c8c8);
+    background-attachment: fixed; /* El fondo se mueve con el scroll es decir: NO PERMANECE FIJO EN LA PANTALLA */
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    margin-top: 20px;
+    text-align: center; /* Alinea el formulario al centro */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+input {
+    width: 60px;
+}
+
+input[readonly] {
+    background-color: #f2f2f2;
+}
+
+input[type="submit"] {
+    width: auto;
+    background-color: #0f7425;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0d6420; /* Cambia el color de fondo al pasar el mouse */
+}
