@@ -89,13 +89,13 @@
             // Mostrar campos de entrada para cada mes
             $fechaActual = clone $fechaInicio;
             while ($fechaActual <= $fechaFin) {
-                $nombreCampo = "[$planta][" . $fechaActual->format('Y-m') . "]";
-                echo "<td><input type='number' name='max[$nombreCampo]' value='' required/></td>";
+                $nombreCampo = "datosmaximos[$planta][" . $fechaActual->format('Y-m') . "]";
+                echo "<td><input type='number' name='$nombreCampo' value='' required/></td>";
                 $fechaActual->add(new DateInterval('P1M'));
             }
 
             // Mostrar el total al final de la fila
-            echo "<td><input type='number' name='maxtotal[$planta]' value='' readonly/></td></tr>";
+            echo "<td><input type='number' name='total[$planta]' value='' readonly/></td></tr>";
         }
 
         // Agregar la fila TOTAL al final
@@ -104,11 +104,11 @@
         // Reiniciar la fechaActual y mostrar celdas para cada mes
         $fechaActual = clone $fechaInicio;
         while ($fechaActual <= $fechaFin) {
-            echo "<td><input type='number' name='maxtotalcolumna[" . $fechaActual->format('Y-m') . "]' value='' readonly/></td>";
+            echo "<td><input type='number' name='totalcolumnamaximos[" . $fechaActual->format('Y-m') . "]' value='' readonly/></td>";
             $fechaActual->add(new DateInterval('P1M'));
         }
 
-        echo "<td><input type='number' name='maxtotalgeneral' value='' readonly/></td></tr>";
+        echo "<td><input type='number' name='totalgeneralmax' value='' readonly/></td></tr>";
 
         echo "</table>";
         echo "<h1>Ingrese los valores mínimos</h1>";
@@ -132,13 +132,13 @@
             // Mostrar campos de entrada para cada mes
             $fechaActual = clone $fechaInicio;
             while ($fechaActual <= $fechaFin) {
-                $nombreCampo = "[$planta][" . $fechaActual->format('Y-m') . "]";
-                echo "<td><input type='number' name='min[$nombreCampo]' value='' required/></td>";
+                $nombreCampo = "datosminimos[$planta][" . $fechaActual->format('Y-m') . "]";
+                echo "<td><input type='number' name='$nombreCampo' value='' required/></td>";
                 $fechaActual->add(new DateInterval('P1M'));
             }
 
             // Mostrar el total al final de la fila
-            echo "<td><input type='number' name='mintotal[$planta]' value='' readonly/></td></tr>";
+            echo "<td><input type='number' name='total[$planta]' value='' readonly/></td></tr>";
         }
 
         // Agregar la fila TOTAL al final
@@ -147,13 +147,15 @@
         // Reiniciar la fechaActual y mostrar celdas para cada mes
         $fechaActual = clone $fechaInicio;
         while ($fechaActual <= $fechaFin) {
-            echo "<td><input type='number' name='mintotalcolumna[" . $fechaActual->format('Y-m') . "]' value='' readonly/></td>";
+            echo "<td><input type='number' name='totalcolumnaminimos[" . $fechaActual->format('Y-m') . "]' value='' readonly/></td>";
             $fechaActual->add(new DateInterval('P1M'));
         }
 
-        echo "<td><input type='number' name='mintotalgeneral' value='' readonly/></td></tr>";
+        echo "<td><input type='number' name='totalgeneralmin' value='' readonly/></td></tr>";
 
         echo "</table>";
+
+        echo "<input type='text' name='tipoleche' value='$tipoleche' readonly/>";
 
         echo "<br><input type='submit' value='Guardar Datos'>";
         echo "</form>";
