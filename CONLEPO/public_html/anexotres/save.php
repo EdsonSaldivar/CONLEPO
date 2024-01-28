@@ -1,67 +1,55 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener datos del formulario
-    $maximos = $_POST['max'];
-    $minimos = $_POST['min'];
-    $maxTotalColumna = $_POST['maxtotalcolumna'];
-    $minTotalColumna = $_POST['mintotalcolumna'];
-    $maxTotalGeneral = $_POST['maxtotalgeneral'];
-    $minTotalGeneral = $_POST['mintotalgeneral'];
+    $tipoleche = $_POST['tipoleche'];
+    $datosmaximos = $_POST['datosmaximos'];
+    $datosminimos = $_POST['datosminimos'];
+    $totalColumnaMax = $_POST['totalcolumnamaximos'];
+    $totalColumnaMin = $_POST['totalcolumnaminimos'];
+    $totalGeneralMax = $_POST['totalgeneralmax'];
+    $totalGeneralMin = $_POST['totalgeneralmin'];
 
-    // Procesar datos de la tabla de máximos
-    echo "<h2>Datos de valores máximos:</h2>";
-    echo "<h3>Valores mensuales:</h3>";
-    foreach ($maximos as $planta => $meses) {
+    echo "<h2>Tipo de leche: $tipoleche</h2>";
+    // DATOS MAXIMOS
+    echo "<h2>Datos maximos recibidos:</h2>";
+
+    // Datos mensuales
+    foreach ($datosmaximos as $planta => $meses) {
         echo "<p>$planta:</p>";
         foreach ($meses as $mes => $valor) {
             echo "<p>$mes: $valor</p>";
         }
-        // Mostrar el total de cada planta
-        $nombreCampo = "maxtotal[$planta]";
-        echo "<p>Total de $planta: " . $_POST[$nombreCampo] . "</p>";
     }
 
-    echo "<h3>Totales de Columna:</h3>";
-    foreach ($maxTotalColumna as $mes => $valor) {
+    // Totales de columna
+    echo "<p>Total de Columna:</p>";
+    foreach ($totalColumnaMax as $mes => $valor) {
         echo "<p>$mes: $valor</p>";
     }
 
-    echo "<h3>Total General:</h3>";
-    echo "<p>$maxTotalGeneral</p>";
+    // Total General
+    echo "<p>Total General: $totalGeneralMax</p>";
 
-    // Procesar datos de la tabla de mínimos
-    echo "<h2>Datos de valores mínimos:</h2>";
-    echo "<h3>Valores mensuales:</h3>";
-    foreach ($minimos as $planta => $meses) {
+    // DATOS MINIMOS
+    echo "<h2>Datos minimos recibidos:</h2>";
+
+    // Datos mensuales
+    foreach ($datosminimos as $planta => $meses) {
         echo "<p>$planta:</p>";
         foreach ($meses as $mes => $valor) {
             echo "<p>$mes: $valor</p>";
         }
-        // Mostrar el total de cada planta
-        $nombreCampo = "mintotal[$planta]";
-        echo "<p>Total de $planta: " . $_POST[$nombreCampo] . "</p>";
     }
 
-    echo "<h3>Totales de Columna:</h3>";
-    foreach ($minTotalColumna as $mes => $valor) {
+    // Totales de columna
+    echo "<p>Total de Columna:</p>";
+    foreach ($totalColumnaMin as $mes => $valor) {
         echo "<p>$mes: $valor</p>";
     }
 
-    echo "<h3>Total General:</h3>";
-    echo "<p>$minTotalGeneral</p>";
+    // Total General
+    echo "<p>Total General: $totalGeneralMin</p>";
 } else {
     echo "<p>No se han enviado datos del formulario.</p>";
 }
-
-echo "<pre>";
-print_r($_POST['maxtotal']);
-echo "</pre>";
-
-echo "<pre>";
-print_r($maximos);
-echo"</pre>";
-
-echo "<pre>";
-print_r($maxTotalColumna);
-echo"</pre>";
 ?>
