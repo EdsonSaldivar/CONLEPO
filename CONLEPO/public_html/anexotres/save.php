@@ -4,6 +4,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tipoleche = $_POST['tipoleche'];
     $datosmaximos = $_POST['datosmaximos'];
     $datosminimos = $_POST['datosminimos'];
+    $totalplantamax = $_POST['totalmax'];
+    $totalplantamin = $_POST['totalmin'];
     $totalColumnaMax = $_POST['totalcolumnamaximos'];
     $totalColumnaMin = $_POST['totalcolumnaminimos'];
     $totalGeneralMax = $_POST['totalgeneralmax'];
@@ -19,6 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         foreach ($meses as $mes => $valor) {
             echo "<p>$mes: $valor</p>";
         }
+        //MOSTRAR $totalplantamax correspondiente a $planta
+        echo "<p>Total para $planta: $totalplantamax[$planta]</p>";
     }
 
     // Totales de columna
@@ -39,6 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         foreach ($meses as $mes => $valor) {
             echo "<p>$mes: $valor</p>";
         }
+        //MOSTRAR $totalplantamin correspondiente a $planta
+        echo "<p>Total para $planta: $totalplantamin[$planta]</p>";
     }
 
     // Totales de columna
