@@ -95,7 +95,7 @@
             }
 
             // Mostrar el total al final de la fila
-            echo "<td><input type='number' name='total[$planta]' value='' readonly/></td></tr>";
+            echo "<td><input type='number' name='totalmax[$planta]' value='' readonly/></td></tr>";
         }
 
         // Agregar la fila TOTAL al final
@@ -138,7 +138,7 @@
             }
 
             // Mostrar el total al final de la fila
-            echo "<td><input type='number' name='total[$planta]' value='' readonly/></td></tr>";
+            echo "<td><input type='number' name='totalmin[$planta]' value='' readonly/></td></tr>";
         }
 
         // Agregar la fila TOTAL al final
