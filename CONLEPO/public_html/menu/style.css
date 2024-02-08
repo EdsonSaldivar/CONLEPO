@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#navbar {
+    background-color: #0f7425;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#navbar a:hover {
+    background-color: #0d6420;
+}
+
+#logo {
+    float: left;
+    padding: 15px;
+    font-size: 24px;
+    color: white;
+}
+
+#logo img {
+    max-height: 40px;
+    border-radius: 50%; /* Hacer la imagen circular */
+}
+
+#header {
+    text-align: center;
+    padding: 80px 0;
+}
+
+#content {
+    padding-top: 60px;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+#content iframe {
+    width: 100%;
+  }

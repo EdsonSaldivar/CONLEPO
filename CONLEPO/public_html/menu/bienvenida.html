@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenida a CONLEPO</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden; /* Evita que las manchas se desplacen fuera del área visible */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url('../images/fondo_vaca.jpg') repeat; /* Aplica el patrón de manchas como fondo */
+      background-size: 300%;
+      animation: moveDiagonally 50s linear infinite; /* Inicia la animación */
+    }
+    @keyframes moveDiagonally {
+      0% { background-position: 0 0; } /* Inicia en la esquina superior izquierda */
+      100% { background-position: 100% 100%; } /* Termina en la esquina inferior derecha */
+    }
+
+    #welcome-section {
+      text-align: center;
+      margin-top: 0px;
+      padding-bottom: 80px;
+    }
+
+    #welcome-section h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #0f7425;
+    }
+
+    #welcome-section #logo {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #0f7425;
+    }
+
+    #welcome-section p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    #footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0f7425;
+      color: white;
+      padding: 10px 0;
+      white-space: nowrap; /* Evita el salto de línea de la frase */
+      overflow: hidden; /* Oculta el texto que excede el área visible */
+    }
+
+    #footer p {
+      display: inline-block;
+      animation: marquee 20s linear infinite; /* Ajusta la velocidad y dirección del desplazamiento */
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+
+<div id="welcome-section">
+  <h1>¡Bienvenido!</h1>
+  <div id="logo">CONLEPO</div>
+  <p>Sistema de seguimiento a Contratos de Leche en Polvo</p>
+</div>
+
+<div id="footer">
+  <p>Administradores: Diana Teresa Rojo Garcia y Edson Mayorga Mujica</p>
+</div>
+
+</body>
+</html>
