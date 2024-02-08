@@ -57,7 +57,7 @@ input[type="submit"]:hover {
     background-color: #0d6420; /* Cambia el color de fondo al pasar el mouse */
 }
 
-input[type="text"]{
+input[type="text"] {
     display: none;
 }
 
