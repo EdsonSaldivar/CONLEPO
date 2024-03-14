@@ -1,3 +1,24 @@
+<?php
+include("../../private/catalogos/plantas/obtener_plantas.php");
+
+$plantas = obtenerPlantas();
+
+session_start();
+
+if(!isset($_SESSION['sagcdaUsuario'])){
+			   header('Location: ../Login/Index.html');
+               exit;
+}else{
+  $ctc = $_SESSION['sagcdaCentroCostosU'];   //CENTRO DE COSTO
+  $centro = $_SESSION['sagcdaCentroTrabU'];  //CENTRO DE TRABAJO
+  $rol = $_SESSION['sagcdaRolUsuario'];      //ROL DE USUARIO
+  $mail = $_SESSION['sagcdaUsuario'];        //CORREO DE USUARIO
+  $nombre = $_SESSION['sagcdaNombreU'];      //NOMBRE DE USUARIO
+  $nombre1 = substr($nombre, 0, 7);
+ 
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,13 +39,13 @@
             <div class="date-container">
                 <div class="date-row">
                     <div class="date-item">
-                        <label for="fechaInicio">Mes inicial</label>
-                        <input type="month" id="fechaInicio" name="fechaInicio" required>
+                        <label for="fechaInicio">Fecha inicial</label>
+                        <input type="date" id="fechaInicio" name="fechaInicio" required>
                     </div>
                     
                     <div class="date-item">
-                        <label for="fechaFin">Mes final</label>
-                        <input type="month" id="fechaFin" name="fechaFin" required>
+                        <label for="fechaFin">Fecha final</label>
+                        <input type="date" id="fechaFin" name="fechaFin" required>
                     </div>
                 </div>
             </div>
@@ -46,7 +67,6 @@
                 <option value="DESCREMADA EN POLVO NO INSTANTÁNEA, FORTIFICADA CON VITAMINAS Y MINERALES">10 DESCREMADA EN POLVO NO INSTANTÁNEA, FORTIFICADA CON VITAMINAS Y MINERALES</option>
                 <option value="ENTERA EN POLVO INSTANTÁNEA, FORTIFICADA CON VITAMINAS Y MINERALES, PARA ENVASADO DIRECTO">11 ENTERA EN POLVO INSTANTÁNEA, FORTIFICADA CON VITAMINAS Y MINERALES, PARA ENVASADO DIRECTO</option>
                 <option value="DESCREMADA EN POLVO NO INSTANTÁNEA SIN FORTIFICAR">12 DESCREMADA EN POLVO NO INSTANTÁNEA SIN FORTIFICAR</option>
-
             </select>
             
         </fieldset>
@@ -54,36 +74,23 @@
         <fieldset>
             <legend>Selecciona las plantas de producción</legend>
             <div class="plantas-container">
-                <input type="checkbox" id="colima" name="plantas[]" value="COLIMA">
-                <label for="colima">COLIMA</label><br>
-
-                <input type="checkbox" id="jalisco" name="plantas[]" value="JALISCO">
-                <label for="jalisco">JALISCO</label><br>
-
-                <input type="checkbox" id="veracruz" name="plantas[]" value="VERACRUZ">
-                <label for="veracruz">VERACRUZ</label><br>
-
-                <input type="checkbox" id="michoacan" name="plantas[]" value="MICHOACAN">
-                <label for="michoacan">MICHOACAN</label><br>
-
-                <input type="checkbox" id="oaxaca" name="plantas[]" value="OAXACA">
-                <label for="oaxaca">OAXACA</label><br>
-
-                <input type="checkbox" id="tlahuac" name="plantas[]" value="TLAHUAC">
-                <label for="tlahuac">TLÁHUAC</label><br>
-
-                <input type="checkbox" id="tlalnepantla" name="plantas[]" value="TLALNEPANTLA">
-                <label for="tlalnepantla">TLALNEPANTLA</label><br>
-
-                <input type="checkbox" id="toluca" name="plantas[]" value="TOLUCA">
-                <label for="toluca">TOLUCA</label><br>
-
-                <input type="checkbox" id="tlaxcala" name="plantas[]" value="TIJUANA">
-                <label for="tlaxcala">TLAXCALA</label><br>
-
-                <input type="checkbox" id="queretaro" name="plantas[]" value="QUERETARO">
-                <label for="queretaro">QUERETARO</label><br>
-            <!-- Agregar más checkboxes según sea necesario -->
+                <?php
+                    if ($plantas) {
+                        foreach ($plantas as $planta) {
+                            $nombrePlanta = $planta['NOMBRE'];
+                            $idPlanta = $planta['ID'];
+                            $estatusPlanta = $planta['ESTATUS'];
+                            
+                            // Verificar el estado de la planta
+                            if ($estatusPlanta == 'Activo') {
+                                echo "<input type='checkbox' id='$idPlanta' name='plantas[]' value='$nombrePlanta'>";
+                                echo "<label for='$idPlanta'>$nombrePlanta</label><br>";
+                            }
+                        }
+                    } else {
+                        echo "No se encontraron plantas";
+                    }
+                ?>
             </div>
         </fieldset>
 
